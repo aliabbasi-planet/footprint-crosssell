@@ -1,10 +1,10 @@
 -- 3C gateway volume aggregated per location + terminal type (for channel + DCC signals).
--- TRANSACTION_DATE is TEXT in the source, so cast defensively.
+-- TRANSACTION_DATE is a YYYYMM string (e.g. '202607'); append '01' and parse as YYYYMMDD.
 with txn as (
     select
         location_no,
         terminal_type_name,
-        try_to_date(transaction_date) as txn_date,
+        try_to_date(transaction_date || '01', 'YYYYMMDD') as txn_date,
         transaction_amount_eur,
         total_transaction_count,
         is_dcc,
