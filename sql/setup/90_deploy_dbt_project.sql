@@ -5,14 +5,14 @@
 -- ============================================================================
 USE ROLE DATA_SCIENTIST;
 USE WAREHOUSE DATA_SCIENCE;
-USE SCHEMA DEV_PRESENTATION_AAB.FOOTPRINT;
+USE SCHEMA DEV_PRESENTATION_AAB.CROSSSELL_FOOTPRINT;
 
 -- Option A: from a git-synced Workspace, create the DBT PROJECT object from the
 -- transform/ folder, then execute it. (Create the DBT PROJECT in Snowsight UI or
 -- via CREATE DBT PROJECT ... FROM @<git_stage>/transform once your repo is linked.)
 
 -- Build everything (seed + run + test + snapshot):
--- EXECUTE DBT PROJECT DEV_PRESENTATION_AAB.FOOTPRINT.FOOTPRINT_CROSSSELL
+-- EXECUTE DBT PROJECT DEV_PRESENTATION_AAB.CROSSSELL_FOOTPRINT.FOOTPRINT_CROSSSELL
 --   ARGS = 'build --target dev';
 
 -- Or step-by-step:

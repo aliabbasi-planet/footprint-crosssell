@@ -21,18 +21,18 @@ models:
   footprint_crosssell:
     staging:
       +materialized: view
-      +schema: footprint
+      +schema: crosssell_footprint
     intermediate:
       +materialized: table
-      +schema: footprint
+      +schema: crosssell_footprint
     marts:
       +materialized: table
-      +schema: footprint
+      +schema: crosssell_footprint
 
 seeds:
   footprint_crosssell:
-    +schema: footprint
+    +schema: crosssell_footprint
 
 snapshots:
   footprint_crosssell:
-    +target_schema: footprint
+    +target_schema: crosssell_footprint

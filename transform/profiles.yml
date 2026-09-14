@@ -14,7 +14,7 @@ footprint_crosssell:
       role: "{{ env_var('SNOWFLAKE_ROLE', 'DATA_SCIENTIST') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'DATA_SCIENCE') }}"
       database: "{{ env_var('SNOWFLAKE_DATABASE', 'DEV_PRESENTATION_AAB') }}"
-      schema: FOOTPRINT
+      schema: CROSSSELL_FOOTPRINT
       threads: 4
       client_session_keep_alive: false
 
@@ -27,7 +27,7 @@ footprint_crosssell:
       role: "{{ env_var('SNOWFLAKE_ROLE', 'DATA_SCIENTIST') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'DATA_SCIENCE') }}"
       database: UAT_PRESENTATION
-      schema: FOOTPRINT
+      schema: CROSSSELL_FOOTPRINT
       threads: 4
 
     prod:
@@ -39,5 +39,5 @@ footprint_crosssell:
       role: "{{ env_var('SNOWFLAKE_ROLE', 'DATA_SCIENTIST') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'DATA_SCIENCE') }}"
       database: PROD_PRESENTATION
-      schema: FOOTPRINT
+      schema: CROSSSELL_FOOTPRINT
       threads: 4

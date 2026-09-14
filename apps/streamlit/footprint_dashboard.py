@@ -1,5 +1,5 @@
 # Footprint Cross-Sell — Streamlit-in-Snowflake dashboard
-# Reads the marts in DEV_PRESENTATION_AAB.FOOTPRINT. Deploy via Snowsight or `snow streamlit deploy`.
+# Reads the marts in DEV_PRESENTATION_AAB.CROSSSELL_FOOTPRINT. Deploy via Snowsight or `snow streamlit deploy`.
 import streamlit as st
 from snowflake.snowpark.context import get_active_session
 
@@ -7,7 +7,7 @@ st.set_page_config(page_title="Footprint Cross-Sell", layout="wide")
 session = get_active_session()
 
 DB = "DEV_PRESENTATION_AAB"
-SCHEMA = "FOOTPRINT"
+SCHEMA = "CROSSSELL_FOOTPRINT"
 
 st.title("Footprint & Share-of-Wallet — Cross-Sell PoC")
 st.caption("Native Snowflake PoC · 9 seed merchants · internal ground-truth only")

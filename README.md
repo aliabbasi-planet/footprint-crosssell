@@ -20,7 +20,7 @@ sql/setup/       sandbox schemas, deploy DBT PROJECT, schedule Task
 ## PoC scope
 9 seed merchants across F&B (Starbucks, SSP, Burger King), Hospitality (Accor, Marriott, Four Seasons), Retail (Luxottica, Dolce & Gabbana, Subdued). All confirmed present in `DIM_CCL_CUSTOMER`.
 
-Outputs (in `DEV_PRESENTATION_AAB.FOOTPRINT`):
+Outputs (in `DEV_PRESENTATION_AAB.CROSSSELL_FOOTPRINT`):
 - `mart_merchant_footprint` — served locations/volume by brand × country × product
 - `mart_share_of_wallet` — product-portfolio share + DCC penetration per brand
 - `mart_crosssell_opportunities` — scored, rule-based product gaps
@@ -33,8 +33,8 @@ Outputs (in `DEV_PRESENTATION_AAB.FOOTPRINT`):
 
 # 2a. native path (recommended)
 cd transform
-snow dbt deploy footprint_crosssell --database DEV_PRESENTATION_AAB --schema FOOTPRINT
-snow sql -q "EXECUTE DBT PROJECT DEV_PRESENTATION_AAB.FOOTPRINT.FOOTPRINT_CROSSSELL args='build'"
+snow dbt deploy footprint_crosssell --database DEV_PRESENTATION_AAB --schema CROSSSELL_FOOTPRINT
+snow sql -q "EXECUTE DBT PROJECT DEV_PRESENTATION_AAB.CROSSSELL_FOOTPRINT.FOOTPRINT_CROSSSELL args='build'"
 
 # 2b. portable path (dbt Core)
 pip install dbt-snowflake
