@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: mart_merchant_footprint
+    description: "Served locations and volume by merchant x country (Gateway product family)."
+    columns:
+      - name: merchant
+        tests: [not_null]
+  - name: mart_share_of_wallet
+    description: "Product-portfolio coverage + DCC penetration per merchant."
+    columns:
+      - name: merchant
+        tests: [not_null, unique]
+      - name: portfolio_coverage
+        description: "products_used / products_available (0-1)."
+  - name: mart_crosssell_opportunities
+    description: "Scored, rule-based product gaps per merchant."
+    columns:
+      - name: opportunity_type
+        tests:
+          - accepted_values:
+              values: ['ACQUIRING_GAP', 'TAXFREE_GAP', 'DCC_LEAKAGE', 'PMS_GAP']
+      - name: confidence_band
+        tests:
+          - accepted_values:
+              values: ['HIGH', 'MEDIUM', 'LOW']
+  - name: mart_crosssell_narratives
+    description: "Cortex-generated commercial narratives for HIGH/MEDIUM opportunities."

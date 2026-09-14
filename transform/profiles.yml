@@ -1,0 +1,43 @@
+# dbt Core profile (portable path). For the native "dbt Projects on Snowflake"
+# path, Snowflake supplies the connection and this file is not used at runtime.
+# NEVER commit real credentials. Use env vars (key-pair auth recommended).
+footprint_crosssell:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'HA17763') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      # Prefer key-pair auth in CI; password only for local convenience.
+      private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH', '') }}"
+      authenticator: "{{ env_var('SNOWFLAKE_AUTHENTICATOR', 'snowflake') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'DATA_SCIENTIST') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'DATA_SCIENCE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'DEV_PRESENTATION_AAB') }}"
+      schema: FOOTPRINT
+      threads: 4
+      client_session_keep_alive: false
+
+    uat:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'HA17763') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH', '') }}"
+      authenticator: "{{ env_var('SNOWFLAKE_AUTHENTICATOR', 'snowflake') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'DATA_SCIENTIST') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'DATA_SCIENCE') }}"
+      database: UAT_PRESENTATION
+      schema: FOOTPRINT
+      threads: 4
+
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'HA17763') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH', '') }}"
+      authenticator: "{{ env_var('SNOWFLAKE_AUTHENTICATOR', 'snowflake') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'DATA_SCIENTIST') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'DATA_SCIENCE') }}"
+      database: PROD_PRESENTATION
+      schema: FOOTPRINT
+      threads: 4

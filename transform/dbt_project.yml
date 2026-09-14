@@ -1,0 +1,38 @@
+name: 'footprint_crosssell'
+version: '1.0.0'
+config-version: 2
+
+profile: 'footprint_crosssell'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+# Only the 9 PoC merchants are analysed; logic is portfolio-general.
+vars:
+  poc_only: true
+  lookback_months: 12
+
+models:
+  footprint_crosssell:
+    staging:
+      +materialized: view
+      +schema: footprint
+    intermediate:
+      +materialized: table
+      +schema: footprint
+    marts:
+      +materialized: table
+      +schema: footprint
+
+seeds:
+  footprint_crosssell:
+    +schema: footprint
+
+snapshots:
+  footprint_crosssell:
+    +target_schema: footprint

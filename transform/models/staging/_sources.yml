@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: datamart
+    database: PROD_PRESENTATION
+    schema: DATAMART
+    tables:
+      - name: dim_ccl_customer
+        description: "The bridge table. SF_ACCOUNT_ID is the only cross-source key."
+      - name: dim_ccc_customer
+        description: "3C location-level detail (despite the name)."
+      - name: fact_ccc_transaction
+        description: "3C gateway transactions. TRANSACTION_DATE is TEXT."
+      - name: fact_mas_transaction
+        description: "MAS acquiring transactions (aggregated). Carries DCC columns."
+      - name: dim_mas_customer
+        description: "MAS acquiring merchant identity."
+
+  - name: curated
+    database: PROD_PRESENTATION
+    schema: CURATED
+    tables:
+      - name: curated_ccl_revenue
+        description: "Location-level revenue by PRODUCT — the share-of-wallet source."
+      - name: curated_tf_all_sources_stores
+        description: "Tax Free store master. UID needs '-TRS' suffix stripped."
+      - name: curated_salesforce_account
+        description: "CRM accounts; only source of WEBSITE/coordinates."
+      - name: curated_salesforce_opportunity
+        description: "Open opportunities — suppress gaps already in a sales motion."

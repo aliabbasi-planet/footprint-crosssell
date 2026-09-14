@@ -1,0 +1,13 @@
+vertical,merchant,match_pattern
+F&B,Starbucks,%starbuck%
+F&B,SSP,%SSP%
+F&B,Burger King,%burger king%
+F&B,Burger King,%king food%
+Hospitality,Accor,%accor%
+Hospitality,Marriott,%marriot%
+Hospitality,Four Seasons,%four season%
+Retail,Luxottica,%luxottica%
+Retail,Luxottica,%luxxotica%
+Retail,Dolce & Gabbana,%dolce%
+Retail,Dolce & Gabbana,%gabbana%
+Retail,Subdued,%subdued%

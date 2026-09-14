@@ -1,0 +1,15 @@
+[sqlfluff]
+dialect = snowflake
+templater = dbt
+max_line_length = 120
+exclude_rules = L034, L044
+
+[sqlfluff:indentation]
+indented_joins = false
+indented_using_on = true
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy = lower

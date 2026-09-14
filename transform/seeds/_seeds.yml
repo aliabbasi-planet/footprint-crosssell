@@ -1,0 +1,15 @@
+seeds:
+  - name: poc_target_merchants
+    description: "The 9 seed merchants for the PoC, with brand-match patterns."
+    columns:
+      - name: merchant
+        tests: [not_null]
+      - name: match_pattern
+        tests: [not_null]
+  - name: channel_terminal_map
+    description: "Keyword -> channel mapping used to classify TERMINAL_TYPE_NAME."
+  - name: brand_corrections
+    description: "Raw brand string -> canonical brand overrides."
+    columns:
+      - name: canonical_brand
+        tests: [not_null]

@@ -1,0 +1,36 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]          # -> UAT
+    tags: ['v*']              # -> PROD (after approval env gate)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: transform
+    # 'main' pushes deploy to UAT; version tags deploy to PROD via the protected env.
+    environment: ${{ startsWith(github.ref, 'refs/tags/v') && 'prod' || 'uat' }}
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PRIVATE_KEY_PATH: ${{ github.workspace }}/key.p8
+      SNOWFLAKE_AUTHENTICATOR: snowflake_jwt
+      SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_WAREHOUSE: DATA_SCIENCE
+      SNOWFLAKE_DATABASE: ${{ vars.SNOWFLAKE_DATABASE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install dbt-snowflake
+      - name: Write key
+        run: echo "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > "$SNOWFLAKE_PRIVATE_KEY_PATH"
+      - name: dbt build
+        run: |
+          TARGET=${{ startsWith(github.ref, 'refs/tags/v') && 'prod' || 'uat' }}
+          dbt deps
+          dbt build --target "$TARGET" --profiles-dir .

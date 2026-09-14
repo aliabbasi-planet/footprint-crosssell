@@ -1,0 +1,16 @@
+keyword,channel
+%ecom%,ECOM
+%e-com%,ECOM
+%online%,ECOM
+%web%,ECOM
+%internet%,ECOM
+%virtual%,ECOM
+%moto%,ECOM
+%pos%,CARD_PRESENT
+%terminal%,CARD_PRESENT
+%chip%,CARD_PRESENT
+%contactless%,CARD_PRESENT
+%countertop%,CARD_PRESENT
+%portable%,CARD_PRESENT
+%mobile%,CARD_PRESENT
+%unattended%,CARD_PRESENT

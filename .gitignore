@@ -1,0 +1,28 @@
+# Python / dbt
+target/
+dbt_packages/
+logs/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.user.yml
+
+# dbt Core local profile (never commit real credentials)
+profiles-local.yml
+
+# Snowflake CLI
+.snowflake/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets — never commit
+*.p8
+*.pem
+*_rsa_key*
+secrets.*

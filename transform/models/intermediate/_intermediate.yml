@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_brand_canonical
+    description: "Canonical merchant + vertical + SF account for each PoC brand."
+  - name: int_internal_estate
+    description: "One row per served 3C location with volume, channel and DCC signals."
+    columns:
+      - name: location_no
+        tests: [not_null]
+      - name: merchant
+        tests: [not_null]
+  - name: int_product_presence
+    description: "Product families each merchant uses, with location/country counts."
+  - name: int_channel_classification
+    description: "Channel position (CP_ONLY/ECOM_ONLY/BOTH/UNKNOWN) per merchant x country."
