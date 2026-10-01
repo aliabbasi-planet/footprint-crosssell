@@ -1,0 +1,108 @@
+merchant,country,external_units,granularity,source_name,source_url,as_of_period,source_tier
+Starbucks,UNITED STATES,16935,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,CHINA,7594,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,SOUTH KOREA,1980,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,JAPAN,1809,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,CANADA,1483,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,UNITED KINGDOM,1354,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,TURKEY,722,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,INDONESIA,603,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,TAIWAN,571,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,THAILAND,513,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,PHILIPPINES,479,country,World Population Review (compiled from Starbucks annual reports),https://worldpopulationreview.com/country-rankings/starbucks-stores-by-country,2024-09,B
+Starbucks,SAUDI ARABIA,478,country,World Coffee Portal (Alshaya Starbucks MENA store counts),https://www.worldcoffeeportal.com/news/alshaya-group-halts-starbucks-mena-franchise-stake-sale/,2025-01,B
+Starbucks,UNITED ARAB EMIRATES,335,country,World Coffee Portal (Alshaya Starbucks MENA store counts),https://www.worldcoffeeportal.com/news/alshaya-group-halts-starbucks-mena-franchise-stake-sale/,2025-01,B
+Burger King / King Foods,UNITED STATES,6649,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,CHINA,1247,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,SPAIN,998,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,BRAZIL,985,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,TURKEY,803,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,GERMANY,757,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,FRANCE,617,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,INDIA,577,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,UNITED KINGDOM,574,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,SOUTH KOREA,552,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,AUSTRALIA,480,country,Wikipedia list of countries with Burger King franchises (trades as Hungry Jack's),https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,MEXICO,467,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,CANADA,376,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,JAPAN,337,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,ITALY,315,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,PORTUGAL,214,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,SAUDI ARABIA,156,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,INDONESIA,138,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,UNITED ARAB EMIRATES,116,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,SWEDEN,113,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,NORWAY,113,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,KUWAIT,97,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,SWITZERLAND,92,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,CHILE,91,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,POLAND,78,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,FINLAND,73,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,SINGAPORE,71,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,NETHERLANDS,68,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,CZECH REPUBLIC,65,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,HUNGARY,63,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,AUSTRIA,63,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,BELGIUM,62,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,DENMARK,61,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,KAZAKHSTAN,58,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,IRELAND,50,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,ROMANIA,47,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,COLOMBIA,43,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,QATAR,23,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,VIETNAM,20,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,LEBANON,18,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Burger King / King Foods,GREECE,6,country,Wikipedia list of countries with Burger King franchises,https://en.wikipedia.org/wiki/List_of_countries_with_Burger_King_franchises,2025-12,B
+Four Seasons,UNITED STATES,42,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,CHINA,8,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,MEXICO,6,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,EGYPT,4,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,ITALY,4,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,JAPAN,4,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,THAILAND,4,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,CANADA,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,COLOMBIA,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,FRANCE,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,UNITED KINGDOM,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,UNITED ARAB EMIRATES,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SAUDI ARABIA,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,MOROCCO,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,INDONESIA,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,MALDIVES,3,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,GREECE,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SPAIN,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,TURKEY,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,QATAR,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SEYCHELLES,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,INDIA,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,MALAYSIA,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,MACAU,2,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,ANGUILLA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,BAHAMAS,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SAINT KITTS AND NEVIS,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,PUERTO RICO,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,ARGENTINA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,COSTA RICA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,AZERBAIJAN,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,HUNGARY,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SWITZERLAND,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,PORTUGAL,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,CZECH REPUBLIC,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,JORDAN,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,BAHRAIN,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,LEBANON,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SOUTH AFRICA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,KUWAIT,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,MAURITIUS,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,TANZANIA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,TUNISIA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,FRENCH POLYNESIA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,VIETNAM,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,HONG KONG,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,PALAU,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SOUTH KOREA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,SINGAPORE,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Four Seasons,AUSTRALIA,1,country,Four Seasons official property directory (open properties),https://www.fourseasons.com/find_a_hotel_or_resort/,2026-10-01,A
+Subdued,ITALY,43,country,FashionNetwork on Osit Impresa 2024 results,"https://ww.fashionnetwork.com/news/Subdued-enters-norway-sweden-and-ireland-after-strong-european-sales-surge,1729904.html",2024-12-31,B
+Subdued,CHINA,2,country,FashionNetwork on Osit Impresa 2024 results,"https://ww.fashionnetwork.com/news/Subdued-enters-norway-sweden-and-ireland-after-strong-european-sales-surge,1729904.html",2024-12-31,B
+Luxottica,NORTH AMERICA,3820,region,Statista EssilorLuxottica corporate stores in North America,https://www.statista.com/statistics/241663/number-of-stores-of-luxottica-in-north-america/,2024-09,B

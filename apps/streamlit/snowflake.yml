@@ -1,0 +1,26 @@
+# Manifest for `snow streamlit deploy` (SPCS container runtime).
+# The app uses only pre-installed packages (streamlit, pandas, altair, snowpark),
+# so there is NO pyproject.toml and NO external access integration needed.
+#
+# compute_pool is account-specific and MUST be set before deploying. Resolve it:
+#   snow sql --format json -q "SHOW PARAMETERS LIKE 'DEFAULT_STREAMLIT_COMPUTE_POOL' IN ACCOUNT"
+#   snow sql --format json -q "SHOW COMPUTE POOLS"
+# then set compute_pool below to that pool name.
+#
+# Alternatively, deploy via Snowsight / git-synced Workspace using environment.yml
+# (warehouse runtime) — see apps/streamlit/README.md. That path needs no pool.
+definition_version: 2
+entities:
+  footprint_dashboard:
+    type: streamlit
+    identifier:
+      name: FOOTPRINT_CROSSSELL_OPTION_A
+      database: DEV_PRESENTATION_AAB
+      schema: CROSSSELL_FOOTPRINT
+    query_warehouse: DATA_SCIENCE
+    runtime_name: SYSTEM$ST_CONTAINER_RUNTIME_PY3_11
+    compute_pool: SET_ME_FROM_DEFAULT_STREAMLIT_COMPUTE_POOL  # <-- resolve + set before deploy
+    main_file: streamlit_app.py
+    artifacts:
+      - streamlit_app.py
+      - .streamlit/config.toml

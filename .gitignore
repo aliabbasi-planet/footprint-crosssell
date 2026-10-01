@@ -15,6 +15,9 @@ profiles-local.yml
 # Snowflake CLI
 .snowflake/
 
+# CoCo session scratch (keep .cortex/skills/, drop auto-saved plans)
+.cortex/plans/
+
 # OS / editor
 .DS_Store
 Thumbs.db

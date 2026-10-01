@@ -1,0 +1,16 @@
+vertical,product_family,is_eligible,rationale
+F&B,Gateway,TRUE,All F&B merchants process card payments
+F&B,Acquiring,TRUE,Card-present acquiring is core to F&B
+F&B,DCC,TRUE,Tourist-facing F&B locations benefit from DCC
+F&B,Tax Free,TRUE,Tourist-area F&B can issue tax-free vouchers
+F&B,PMS,FALSE,F&B does not use property management systems
+Hospitality,Gateway,TRUE,Hotels process card payments at front desk and POS
+Hospitality,Acquiring,TRUE,Hotels benefit from direct acquiring relationships
+Hospitality,DCC,TRUE,Hotels serve international travellers — DCC is core
+Hospitality,Tax Free,TRUE,Hotel retail shops and services can issue tax-free
+Hospitality,PMS,TRUE,Property management is essential to hotel operations
+Retail,Gateway,TRUE,All retail processes card payments
+Retail,Acquiring,TRUE,Retail stores need acquiring
+Retail,DCC,TRUE,Tourist-facing retail benefits from DCC
+Retail,Tax Free,TRUE,Retail is the primary tax-free vertical
+Retail,PMS,FALSE,Retail does not use property management systems

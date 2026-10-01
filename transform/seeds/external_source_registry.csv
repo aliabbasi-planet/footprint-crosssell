@@ -1,0 +1,8 @@
+source_id,source_name,option_tier,data_category,grain,enabled,licence_required,approval_ref,notes
+opt_a_filings,Regulatory filings & brand investor disclosures,A,brand_published,country_counts,true,none,option_a_approved,"SEC 10-K, AMF URD, LSE RNS, brand IR fact sheets. Public, designed for consumption."
+opt_a_registers,Public business registers,B,public_register,entity_operator,true,none,option_a_approved,"Companies House API, SEC EDGAR, Registro Imprese, Nordic registers. Operator/entity resolution."
+opt_a_directories,Brand store/property directories,A,brand_published,location_counts,true,none,option_a_approved,"Brand-owned published store locators / property lists read as published content (counts only, no bulk harvest)."
+opt_b_google_places,Google Places API (New),B,licensed_poi,location_detail,false,google_places_api_key,PENDING_LEGAL_AND_LICENCE,"Location-level geocoded POIs. Needs licence + API key from platform team. Adapter stub pre-built."
+opt_c_marketplace_poi,Snowflake Marketplace POI (SafeGraph/Precisely),C,licensed_poi,location_detail,false,marketplace_listing_subscription,PENDING_LEGAL_AND_PROCUREMENT,"Mounted Marketplace share. Needs ACCOUNTADMIN mount + subscription. Adapter stub pre-built."
+opt_d_scraping,Automated store-locator harvesting,D,scraped,location_detail,false,legal_scraping_signoff,PENDING_LEGAL,"Automated collection of brand locators. Method pending Legal/Risk ruling. Parked under models/_legacy."
+opt_e_thirdparty_scraping,Third-party scraping (Apify/Bright Data),E,scraped_thirdparty,location_detail,false,legal_scraping_signoff_and_vendor_contract,PENDING_LEGAL,"Third-party scraped feeds. Highest risk. Parked."

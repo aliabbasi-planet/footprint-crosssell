@@ -1,0 +1,10 @@
+vertical,merchant,store_finder_url,api_endpoint,scrape_method,notes
+F&B,Starbucks,https://www.starbucks.com/store-locator,https://use1-prod-sb.starbucks.com/bff/locations/v1/stores?lat=48.8566&lng=2.3522&limit=50,API,JSON API; paginate by lat/lng grid per country
+F&B,SSP,https://www.foodtravelexperts.com/our-brands/,,CORTEX_INTEL,No public store locator — SSP operates in airports/rail; use Cortex intelligence
+F&B,Burger King,https://www.bk.com/store-locator,https://czqk28jt.apicdn.sanity.io/v2024-01-01/data/query/bk-uk?query=*[_type=='restaurant'],API,Sanity CMS API; query per country domain
+Hospitality,Accor,https://all.accor.com/,https://api.accor.com/hotels/v1/search,API,Accor API requires geo search; paginate by country
+Hospitality,Marriott,https://www.marriott.com/search/findHotels.mi,,HTML,Server-rendered search results; fetch per country
+Hospitality,Four Seasons,https://www.fourseasons.com/destinations/,,CORTEX_INTEL,Small global footprint (~130 properties); Cortex knows them well
+Retail,Luxottica,https://www.sunglasshut.com/store-locator,,HTML,Luxottica operates as Sunglass Hut / Ray-Ban; fetch store locator
+Retail,Dolce & Gabbana,https://www.dolcegabbana.com/en/stores,,HTML,Boutique store list; relatively small count
+Retail,Subdued,https://www.subdued.com/stores,,HTML,European fast-fashion; store list page

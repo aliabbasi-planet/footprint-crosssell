@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: ext_option_a_filings
+    description: >
+      Option A (ACTIVE): brand-published / regulatory-filing per-country unit
+      counts, sourced from the ext_country_units seed. Every row carries
+      source_url + as_of_period + source_tier. No scraping, no paid API.
+    config:
+      tags: ['external', 'option_a']
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+      - name: source_url
+        data_tests: [not_null]
+
+  - name: ext_option_a_operators
+    description: >
+      Option A (ACTIVE): operator/franchisee mapping per country with Planet's
+      existing-relationship flag — the commercial unlock from footprint to a
+      named counterparty.
+    config:
+      tags: ['external', 'option_a']
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: operator_name
+        data_tests: [not_null]
+      - name: source_url
+        data_tests: [not_null]
+
+  # ext_google_places (Option B) and ext_marketplace_poi (Option C) are PARKED:
+  # disabled via config enabled=source_tier_enabled('B'/'C'). They carry no schema
+  # here until their tier is switched on. See the model files for activation steps.

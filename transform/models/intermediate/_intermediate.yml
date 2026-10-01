@@ -1,16 +1,56 @@
 version: 2
 
 models:
-  - name: int_brand_canonical
-    description: "Canonical merchant + vertical + SF account for each PoC brand."
-  - name: int_internal_estate
-    description: "One row per served 3C location with volume, channel and DCC signals."
+  - name: int_brand_resolution
+    description: >
+      THE merchant-matching fix. One row per (CCL row, merchant), resolved with
+      brand_resolution_rules (include/subbrand minus exclude, country-scoped,
+      across brand+customer_name+account). Replaces the legacy BRAND-only ILIKE
+      match.
     columns:
-      - name: location_no
-        tests: [not_null]
       - name: merchant
-        tests: [not_null]
-  - name: int_product_presence
-    description: "Product families each merchant uses, with location/country counts."
-  - name: int_channel_classification
-    description: "Channel position (CP_ONLY/ECOM_ONLY/BOTH/UNKNOWN) per merchant x country."
+        data_tests: [not_null]
+      - name: resolution_method
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['DIRECT', 'SUBBRAND']
+      - name: is_shared_location
+        description: "True when the location carries more than one PoC brand (e.g. an SSP-run Starbucks); it is credited to each brand."
+        data_tests: [not_null]
+      - name: is_decommissioned
+        description: "True for decommissioned / test terminals (###, DECOM, *DNU*, TEST, CLOSED markers); excluded from served counts."
+        data_tests: [not_null]
+
+  - name: int_internal_footprint
+    description: "Internal served footprint at merchant x canonical-country grain (stores, cities, accounts)."
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+
+  - name: int_value_benchmark
+    description: "Planet's own TTM realised revenue per served store, by merchant x country."
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+
+  - name: int_external_footprint
+    description: >
+      Unified external footprint, gated by external_source_registry + the
+      enabled_source_tiers var. Option A active; B/C auto-union when enabled.
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+      - name: source_url
+        data_tests: [not_null]
+      - name: source_tier
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C']

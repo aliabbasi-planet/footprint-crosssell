@@ -1,3 +1,6 @@
+# Streamlit-in-Snowflake dependency manifest for the WAREHOUSE-runtime path
+# (Snowsight "Create Streamlit app" or a git-synced Workspace — the repo's
+# primary deploy path, see README section 11). No compute pool required.
 name: sf_env
 channels:
   - snowflake
@@ -5,3 +8,4 @@ dependencies:
   - streamlit
   - snowflake-snowpark-python
   - pandas
+  - altair

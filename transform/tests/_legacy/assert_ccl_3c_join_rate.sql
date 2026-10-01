@@ -1,3 +1,5 @@
+{{ config(enabled=false, tags=['legacy']) }}
+-- LEGACY (disabled): belongs to the superseded 3C-estate design.
 -- Fails if the CCL <-> 3C join for PoC merchants drops below 99%.
 with ccl as (
     select uid from {{ ref('stg_ccl_customer') }} where data_source = '3C'

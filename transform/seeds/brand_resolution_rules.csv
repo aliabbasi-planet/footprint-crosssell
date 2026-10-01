@@ -1,0 +1,133 @@
+merchant,vertical,rule_type,match_mode,pattern,country_scope,notes
+Starbucks,F&B,include,ilike,%starbuck%,,direct brand (substring keeps run-together names e.g. D576STARBUCKS)
+Burger King / King Foods,F&B,include,ilike,%burger king%,,direct brand
+Burger King / King Foods,F&B,include,ilike,%burgerking%,,run-together brand name
+Burger King / King Foods,F&B,include,ilike,%king food%,NORWAY|SWEDEN|DENMARK,King Food is BK master franchisee only in these markets; elsewhere the account is mis-linked or an unrelated shop
+Burger King / King Foods,F&B,include,ilike,%hungry jack%,AUSTRALIA,Burger King trades as Hungry Jack's in Australia; elsewhere the name is unrelated
+SSP,F&B,include,word,ssp,,whole word so 'passport' is not caught
+SSP,F&B,include,ilike,%select service partner%,,full legal name
+SSP,F&B,exclude,ilike,%passport%,,safety net
+SSP,F&B,exclude,ilike,%swisspeak%,,resort chain
+Accor,Hospitality,include,prefix,accor,,word-start: keeps accorhotels; drops maccord / transaccorsi
+Accor,Hospitality,subbrand,prefix,ibis,,word-start: drops hibiscus / gleibison
+Accor,Hospitality,subbrand,ilike,%hotelibis%,,run-together Ibis hotel names
+Accor,Hospitality,subbrand,ilike,%ibishotel%,,run-together Ibis hotel names
+Accor,Hospitality,subbrand,ilike,%novotel%,,substring: run-together names are genuine
+Accor,Hospitality,subbrand,ilike,%sofitel%,,substring: run-together names are genuine
+Accor,Hospitality,subbrand,ilike,%mercure%,,substring: run-together names are genuine
+Accor,Hospitality,subbrand,ilike,%pullman%,,Accor brand (see Colombia/Brazil exclusions)
+Accor,Hospitality,subbrand,ilike,%fairmont%,,Accor brand
+Accor,Hospitality,subbrand,ilike,%raffles%,,Accor brand (see Singapore/medical/school exclusions)
+Accor,Hospitality,subbrand,ilike,%swissotel%,,Accor brand
+Accor,Hospitality,subbrand,ilike,%movenpick%,,substring: run-together names are genuine
+Accor,Hospitality,subbrand,ilike,%mgallery%,,substring: run-together names are genuine
+Accor,Hospitality,subbrand,prefix,adagio,,word-start: drops madagio / abadagio
+Accor,Hospitality,subbrand,ilike,%25hours%,,Ennismore (Accor)
+Accor,Hospitality,subbrand,ilike,%mama shelter%,,Ennismore (Accor)
+Accor,Hospitality,subbrand,ilike,%rixos%,,Accor brand
+Accor,Hospitality,subbrand,ilike,%banyan tree%,,listed by Accor among its luxury brands (accor.com brand portfolio)
+Accor,Hospitality,exclude,ilike,%pullman%,COLOMBIA,'Amoblando Pullman' furniture chain; no Accor Pullman hotel in Colombia
+Accor,Hospitality,exclude,ilike,%loja pullman%,,Brazilian shop
+Accor,Hospitality,exclude,ilike,%lojinha pullman%,,Brazilian shop
+Accor,Hospitality,exclude,ilike,%pullman modas%,,Brazilian clothing store
+Accor,Hospitality,exclude,ilike,%raffles city%,,Singapore mall tenants
+Accor,Hospitality,exclude,ilike,%raffles place%,,Singapore office address
+Accor,Hospitality,exclude,ilike,%raffles medical%,,healthcare group
+Accor,Hospitality,exclude,ilike,%raffles international school%,,school
+Accor,Hospitality,exclude,ilike,%raffles hills%,,residential estate
+Accor,Hospitality,exclude,ilike,%rafflesia%,,unrelated name
+Marriott,Hospitality,include,ilike,%marriot%,,direct group (marriott + common misspelling)
+Marriott,Hospitality,include,ilike,%mariott%,,common misspelling
+Marriott,Hospitality,subbrand,ilike,%sheraton%,,substring: run-together names are genuine
+Marriott,Hospitality,subbrand,ilike,%westin%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%ritz-carlton%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%ritz carlton%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%st regis%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%st. regis%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%le meridien%,,Marriott brand
+Marriott,Hospitality,subbrand,leading,courtyard,UNITED STATES|INDIA,name must start with 'Courtyard'; elsewhere it is mostly independent hotels/cafes (rows naming Marriott are caught by the include rule)
+Marriott,Hospitality,subbrand,ilike,%autograph collection%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%luxury collection%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%four points%,,Marriott brand
+Marriott,Hospitality,subbrand,prefix,aloft,,word-start: drops kasaloft / bellaloft
+Marriott,Hospitality,subbrand,prefix,moxy,,word-start: drops samoxyl
+Marriott,Hospitality,subbrand,ilike,%residence inn%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%renaissance hotel%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%edition hotel%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%protea hotel%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%delta hotel%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%ac hotel%,,Marriott brand (see Damac exclusion)
+Marriott,Hospitality,subbrand,ilike,%gaylord%,UNITED STATES,Gaylord Hotels trade only in the US
+Marriott,Hospitality,subbrand,ilike,%tribute portfolio%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%springhill%,,Marriott brand
+Marriott,Hospitality,subbrand,ilike,%towneplace%,,Marriott brand
+Marriott,Hospitality,exclude,ilike,%damac%,,'Damac Hotels' is not an AC Hotel
+Marriott,Hospitality,exclude,ilike,%tailoring%,,'Gaylord Tailoring'
+Marriott,Hospitality,exclude,ilike,%mohawk%,,'St. Regis Mohawk Tribe'
+Marriott,Hospitality,exclude,ilike,%osl luxury%,,'OSL Luxury Collections' retailer
+Marriott,Hospitality,exclude,ilike,%chiropractic%,,non-hotel 'Courtyard' business
+Marriott,Hospitality,exclude,ilike,%retirement%,,non-hotel 'Courtyard' business
+Marriott,Hospitality,exclude,ilike,%freshmart%,,non-hotel 'Courtyard' business
+Four Seasons,Hospitality,include,ilike,%four seasons hotel%,UNITED STATES|MEXICO|EGYPT|FRANCE|THAILAND|CANADA|ITALY|UNITED KINGDOM|MOROCCO|UNITED ARAB EMIRATES|CHINA|INDONESIA|JAPAN|MALDIVES|COLOMBIA|QATAR|SEYCHELLES|TURKEY|INDIA|MACAU|MALAYSIA|ANGUILLA|ARGENTINA|BAHAMAS|COSTA RICA|SAINT KITTS AND NEVIS|AZERBAIJAN|CZECH REPUBLIC|GREECE|HUNGARY|PORTUGAL|SPAIN|SWITZERLAND|BAHRAIN|JORDAN|KUWAIT|LEBANON|MAURITIUS|SAUDI ARABIA|SOUTH AFRICA|TANZANIA|TUNISIA|AUSTRALIA|FRENCH POLYNESIA|HONG KONG|PALAU|SINGAPORE|SOUTH KOREA|VIETNAM|PUERTO RICO,only in the 50 countries/territories of the published property directory: 'Four Seasons Hotel' is also a common independent name (e.g. Ireland / Cyprus)
+Four Seasons,Hospitality,include,ilike,%four seasons resort%,UNITED STATES|MEXICO|EGYPT|FRANCE|THAILAND|CANADA|ITALY|UNITED KINGDOM|MOROCCO|UNITED ARAB EMIRATES|CHINA|INDONESIA|JAPAN|MALDIVES|COLOMBIA|QATAR|SEYCHELLES|TURKEY|INDIA|MACAU|MALAYSIA|ANGUILLA|ARGENTINA|BAHAMAS|COSTA RICA|SAINT KITTS AND NEVIS|AZERBAIJAN|CZECH REPUBLIC|GREECE|HUNGARY|PORTUGAL|SPAIN|SWITZERLAND|BAHRAIN|JORDAN|KUWAIT|LEBANON|MAURITIUS|SAUDI ARABIA|SOUTH AFRICA|TANZANIA|TUNISIA|AUSTRALIA|FRENCH POLYNESIA|HONG KONG|PALAU|SINGAPORE|SOUTH KOREA|VIETNAM|PUERTO RICO,directory countries only
+Four Seasons,Hospitality,include,ilike,%four season resort%,UNITED STATES|MEXICO|EGYPT|FRANCE|THAILAND|CANADA|ITALY|UNITED KINGDOM|MOROCCO|UNITED ARAB EMIRATES|CHINA|INDONESIA|JAPAN|MALDIVES|COLOMBIA|QATAR|SEYCHELLES|TURKEY|INDIA|MACAU|MALAYSIA|ANGUILLA|ARGENTINA|BAHAMAS|COSTA RICA|SAINT KITTS AND NEVIS|AZERBAIJAN|CZECH REPUBLIC|GREECE|HUNGARY|PORTUGAL|SPAIN|SWITZERLAND|BAHRAIN|JORDAN|KUWAIT|LEBANON|MAURITIUS|SAUDI ARABIA|SOUTH AFRICA|TANZANIA|TUNISIA|AUSTRALIA|FRENCH POLYNESIA|HONG KONG|PALAU|SINGAPORE|SOUTH KOREA|VIETNAM|PUERTO RICO,singular spelling e.g. 'Four Season Resort Langkawi'
+Four Seasons,Hospitality,include,ilike,%four seasons htl%,UNITED STATES|MEXICO|EGYPT|FRANCE|THAILAND|CANADA|ITALY|UNITED KINGDOM|MOROCCO|UNITED ARAB EMIRATES|CHINA|INDONESIA|JAPAN|MALDIVES|COLOMBIA|QATAR|SEYCHELLES|TURKEY|INDIA|MACAU|MALAYSIA|ANGUILLA|ARGENTINA|BAHAMAS|COSTA RICA|SAINT KITTS AND NEVIS|AZERBAIJAN|CZECH REPUBLIC|GREECE|HUNGARY|PORTUGAL|SPAIN|SWITZERLAND|BAHRAIN|JORDAN|KUWAIT|LEBANON|MAURITIUS|SAUDI ARABIA|SOUTH AFRICA|TANZANIA|TUNISIA|AUSTRALIA|FRENCH POLYNESIA|HONG KONG|PALAU|SINGAPORE|SOUTH KOREA|VIETNAM|PUERTO RICO,abbreviated 'hotel' e.g. Amman outlets
+Four Seasons,Hospitality,include,ilike,%four seasons mo %,MACAU,Four Seasons Macao outlet naming
+Four Seasons,Hospitality,include,ilike,%four seasons hk%,HONG KONG,Four Seasons Hong Kong outlet naming
+Four Seasons,Hospitality,include,ilike,%four seasons place hk%,HONG KONG,Four Seasons Place serviced residences
+Four Seasons,Hospitality,include,ilike,%four seasons bng%,INDIA,Four Seasons Bengaluru outlet naming
+Four Seasons,Hospitality,include,ilike,%four seasons sayan%,INDONESIA,Four Seasons Bali at Sayan
+Four Seasons,Hospitality,include,ilike,%four season ubud%,INDONESIA,Four Seasons Bali at Sayan (Ubud)
+Four Seasons,Hospitality,include,ilike,%four seasons landaa%,MALDIVES,Four Seasons Landaa Giraavaru
+Four Seasons,Hospitality,include,ilike,%ritz four seasons%,PORTUGAL,Four Seasons Hotel Ritz Lisbon
+Four Seasons,Hospitality,exclude,ilike,%vegetable%,,'Four Season Vegetables' is not the hotel
+Four Seasons,Hospitality,exclude,ilike,%salon%,,salon chain
+Four Seasons,Hospitality,exclude,ilike,%vilamoura%,PORTUGAL,unrelated Four Seasons Fairways resort
+Four Seasons,Hospitality,exclude,ilike,%fairways%,,unrelated Four Seasons Fairways resort
+Luxottica,Retail,include,ilike,%luxottica%,,direct group
+Luxottica,Retail,include,ilike,%luxxotica%,,common misspelling
+Luxottica,Retail,subbrand,ilike,%sunglass hut%,,EssilorLuxottica banner (Planet already serves)
+Luxottica,Retail,subbrand,ilike,%sunglasses hut%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%lenscrafters%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%pearle vision%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,word,pearle,NETHERLANDS|BELGIUM|LUXEMBOURG|AUSTRIA,Pearle Opticiens (Benelux/Austria); in North America the banner is 'Pearle Vision' (rule above) and bare 'Pearle' matched spas/hotels/personal names
+Luxottica,Retail,subbrand,ilike,%grandvision%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%grandoptical%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,word,vision express,,whole phrase: drops 'provision express'
+Luxottica,Retail,subbrand,ilike,%ray-ban%,,EssilorLuxottica store
+Luxottica,Retail,subbrand,word,ray ban,,EssilorLuxottica store
+Luxottica,Retail,subbrand,prefix,oakley,,word-start (see exclusions)
+Luxottica,Retail,subbrand,ilike,%salmoiraghi%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%apollo optik%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%generaloptica%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%multiopticas%,PORTUGAL,EssilorLuxottica banner only in Portugal; in Spain/LatAm it is unrelated independents
+Luxottica,Retail,subbrand,ilike,%david clulow%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%target optical%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%oticas carol%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,ilike,%synoptik%,,EssilorLuxottica banner
+Luxottica,Retail,subbrand,word,opsm,AUSTRALIA|NEW ZEALAND,OPSM trades only in Australia/New Zealand
+Luxottica,Retail,subbrand,ilike,%oliver peoples%,,EssilorLuxottica store
+Luxottica,Retail,exclude,ilike,%oakleys%,,'Oakleys Barber Shop' etc
+Luxottica,Retail,exclude,ilike,%annie oakley%,,unrelated business
+Luxottica,Retail,exclude,ilike,%oakley station%,,US place name
+Luxottica,Retail,exclude,ilike,%oakley market%,,unrelated business
+Dolce & Gabbana,Retail,include,ilike,%gabbana%,,gabbana is the safe token; 'dolce' alone is false-positive-prone
+Dolce & Gabbana,Retail,exclude,ilike,%wyndham%,,'Dolce by Wyndham' hotels are not D&G
+Dolce & Gabbana,Retail,exclude,ilike,%dolce vita%,,hotels/resorts named Dolce Vita
+Subdued,Retail,include,ilike,%subdued%,,direct brand
+*,ALL,exclude,ilike,%towne park%,,third-party valet/parking operator - Planet's customer is the operator not the brand
+*,ALL,exclude,ilike,%townepark%,,third-party valet/parking operator
+*,ALL,exclude,ilike,%parkone%,,third-party parking operator
+*,ALL,exclude,ilike,%sp plus%,,third-party parking operator
+*,ALL,exclude,ilike,%sp+%,,third-party parking operator
+*,ALL,exclude,ilike,%impark%,,third-party parking operator
+*,ALL,exclude,ilike,%laz parking%,,third-party parking operator
+*,ALL,exclude,ilike,%lanier parking%,,third-party parking operator
+*,ALL,exclude,ilike,%ace parking%,,third-party parking operator
+*,ALL,exclude,ilike,%abm parking%,,third-party parking operator
+*,ALL,exclude,ilike,%apcoa%,,third-party parking operator
+*,ALL,exclude,ilike,%q-park%,,third-party parking operator
+*,ALL,exclude,ilike,%interparking%,,third-party parking operator
+*,ALL,exclude,ilike,%indigo park%,,third-party parking operator
+*,ALL,exclude,ilike,%flowbird%,,parking-meter operator mis-linked to brand accounts
+*,ALL,exclude,ilike,%parkeon%,,parking-meter operator mis-linked to brand accounts

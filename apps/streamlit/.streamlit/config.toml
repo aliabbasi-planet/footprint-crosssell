@@ -1,0 +1,21 @@
+# Snowflake brand theme (The Data Cloud aesthetic). Colours only — no bundled
+# font files, so it renders cleanly in Streamlit-in-Snowflake without extra assets.
+[theme]
+primaryColor = "#29B5E8"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f9fc"
+textColor = "#11567F"
+linkColor = "#29B5E8"
+borderColor = "#d0e8f2"
+showWidgetBorder = true
+showSidebarBorder = true
+baseRadius = "8px"
+chartCategoricalColors = ["#29B5E8", "#FF8B00", "#36B37E", "#6554C0", "#DE350B", "#11567F", "#FFAB00", "#00A3BF"]
+dataframeBorderColor = "#d0e8f2"
+dataframeHeaderBackgroundColor = "#e8f4f8"
+
+[theme.sidebar]
+backgroundColor = "#11567F"
+secondaryBackgroundColor = "#174D6A"
+textColor = "#ffffff"
+borderColor = "#1E6D94"

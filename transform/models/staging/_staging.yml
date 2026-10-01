@@ -2,30 +2,26 @@ version: 2
 
 models:
   - name: stg_ccl_customer
-    description: "CCL bridge rows for the 9 PoC merchants, tagged with canonical merchant/vertical."
+    description: "CCL bridge: cleaned 1:1 passthrough of DIM_CCL_CUSTOMER. Merchant tagging happens downstream in int_brand_resolution."
     columns:
       - name: sf_account_id
         description: "The single cross-source bridge key."
       - name: uid
         description: "Per-source location identifier."
+      - name: raw_brand
+        description: "Raw BRAND string; one of the fields matched by int_brand_resolution."
+      - name: customer_name
+        description: "Raw CUSTOMER_NAME; matched by int_brand_resolution (captures sub-brands)."
       - name: data_source
-        tests:
+        data_tests:
           - not_null
-  - name: stg_ccc_customer
-    description: "3C location detail for PoC locations."
-    columns:
-      - name: location_no
-        tests: [not_null]
-  - name: stg_ccc_transaction
-    description: "3C gateway volume + DCC signals per location and terminal type."
-  - name: stg_mas_transaction
-    description: "MAS acquiring volume + DCC signals per merchant_id."
-    columns:
-      - name: merchant_id
-        tests: [not_null]
+
   - name: stg_ccl_revenue
-    description: "Revenue by product for PoC merchants — share-of-wallet source."
-  - name: stg_tf_stores
-    description: "Tax Free store master mapped to CCL UID."
-  - name: stg_sf_opportunity
-    description: "Open Salesforce opportunities for suppression."
+    description: "Location-level revenue by PRODUCT (CURATED_CCL_REVENUE). Attributed to merchants downstream via int_brand_resolution on UID."
+    columns:
+      - name: uid
+        data_tests:
+          - not_null
+
+  # The 3C / MAS / Tax-Free / Salesforce staging models served only the superseded
+  # estate + eligibility design and now live (disabled) under models/_legacy/staging.

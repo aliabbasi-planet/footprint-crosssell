@@ -1,0 +1,56 @@
+# Option A source playbook for the 9 PoC merchants.
+# This is the agent's map of WHERE to find Tier-A (brand-published) and Tier-B
+# (public register) evidence. It is documentation + config, not a live scraper.
+# Every figure sourced from here must still carry source_url + as_of_period.
+
+schemas:
+  country_units:            # -> transform/seeds/ext_country_units.csv
+    columns: [merchant, country, external_units, granularity, source_name, source_url, as_of_period, source_tier]
+    key: [merchant, country]
+  brand_totals:             # -> transform/seeds/ext_brand_totals.csv
+    columns: [merchant, unit_type, brand_total_units, brand_total_countries, operating_model, source_name, source_url, as_of_period, source_tier]
+    key: [merchant]
+  operator_map:             # -> transform/seeds/ext_operator_map.csv
+    columns: [merchant, country, operator_name, operator_role, planet_existing_relationship, evidence, source_name, source_url, as_of_period]
+    key: [merchant, country, operator_name]
+
+merchants:
+  Starbucks:
+    tier_a: ["Starbucks investor relations quarterly results & 10-K store-count tables"]
+    tier_b: ["SEC EDGAR CIK 0000829224 (10-K)"]
+    notes: "Company-operated vs licensed split matters. MENA/Turkey run by Alshaya; CEE by AmRest; Korea by Shinsegae."
+  SSP:
+    tier_a: ["SSP Group plc annual report & results (foodtravelexperts.com/investors)"]
+    tier_b: ["Companies House SSP Group plc"]
+    notes: "Travel-retail; count units/countries. Guard against 'passport' false positives (word-boundary)."
+  "Burger King / King Foods":
+    tier_a: ["Restaurant Brands International 10-K/annual; regional master-franchisee disclosures"]
+    tier_b: ["SEC EDGAR RBI; Companies House BKUK Group; national registers for franchisees"]
+    notes: "Franchised. Capture operator per country. King Food (Scandinavia) is an existing Planet client."
+  Accor:
+    tier_a: ["Accor Universal Registration Document (AMF); FY results press release"]
+    tier_b: ["AMF filings; Infogreffe for Accor SA"]
+    notes: "Capture sub-brands (Ibis/Novotel/Sofitel/Mercure/Pullman...). Managed + franchised."
+  Marriott:
+    tier_a: ["Marriott International Form 10-K (property/country tables)"]
+    tier_b: ["SEC EDGAR CIK 0001048286"]
+    notes: "30+ sub-brands (Sheraton/Westin/Ritz-Carlton/Le Meridien...). Managed + franchised."
+  "Four Seasons":
+    tier_a: ["Four Seasons official property directory (counts of listed hotels/resorts)"]
+    tier_b: ["Corporate registration (private company)"]
+    notes: "Management company. Count properties per country from the published directory."
+  Luxottica:
+    tier_a: ["EssilorLuxottica Universal Registration Document (store counts by banner/region)"]
+    tier_b: ["AMF filings EssilorLuxottica"]
+    notes: "Banners: Sunglass Hut (Planet already serves), LensCrafters, Pearle, GrandVision, Ray-Ban, Oakley."
+  "Dolce & Gabbana":
+    tier_a: ["Company profile / press on monobrand boutique count"]
+    tier_b: ["Registro Imprese (Dolce & Gabbana S.r.l.)"]
+    notes: "Count monobrand boutiques; exclude 'Dolce by Wyndham' and 'Dolce Vita' hotels."
+  Subdued:
+    tier_a: ["FashionNetwork / press on store count"]
+    tier_b: ["Registro Imprese (Osit Impresa S.p.A.)"]
+    notes: "Small retailer; Italy-heavy. Confirm country spread from register/press."
+
+# Reminder: Google Places / Maps, paid POI, and scraping are Options B-E and are
+# PARKED. Do not use them while their registry row is enabled=false.

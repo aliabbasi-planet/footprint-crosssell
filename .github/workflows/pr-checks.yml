@@ -5,10 +5,18 @@ on:
     branches: [main]
     paths:
       - 'transform/**'
+      - 'apps/**'
+      - 'agent/**'
       - '.github/workflows/pr-checks.yml'
 
 jobs:
-  lint-and-compile:
+  # ---------------------------------------------------------------------------
+  # dbt: validate the project compiles against the warehouse catalog + lint SQL.
+  # PR checks are intentionally WRITE-FREE (compile only). The full build+test
+  # runs on merge -> UAT in deploy.yml. (To add an ephemeral-schema build here,
+  # parameterise +schema per PR and drop it in a cleanup step.)
+  # ---------------------------------------------------------------------------
+  dbt-compile:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,27 +31,64 @@ jobs:
       SNOWFLAKE_DATABASE: DEV_PRESENTATION_AAB
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install tooling
-        run: pip install dbt-snowflake sqlfluff
-
+        run: pip install "dbt-snowflake>=1.9.0" sqlfluff
       - name: Write key
         run: echo "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > "$SNOWFLAKE_PRIVATE_KEY_PATH"
-
       - name: dbt deps
         run: dbt deps
-
       - name: dbt compile (no writes)
         run: dbt compile --target dev --profiles-dir .
+      - name: sqlfluff lint (advisory)
+        # Promote to a hard gate (remove continue-on-error) once the backlog is clean.
+        continue-on-error: true
+        run: sqlfluff lint models --dialect snowflake --templater dbt
 
-      - name: sqlfluff lint
-        run: sqlfluff lint models --dialect snowflake --templater dbt || true
-
-      - name: Model-card check
-        working-directory: .
+  # ---------------------------------------------------------------------------
+  # Anti-fabrication gate (HARD): every external seed row must carry provenance.
+  # Pure stdlib, no warehouse, no secrets — fast and deterministic.
+  # ---------------------------------------------------------------------------
+  provenance-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate external seeds carry source_url + as_of
         run: |
-          test -f docs/CrossSell_PoC_Native_Snowflake_Plan.md || (echo "Missing plan/model-card doc" && exit 1)
+          python agent/option_a_discovery/validate_candidates.py --schema country_units transform/seeds/ext_country_units.csv
+          python agent/option_a_discovery/validate_candidates.py --schema brand_totals  transform/seeds/ext_brand_totals.csv
+          python agent/option_a_discovery/validate_candidates.py --schema operator_map  transform/seeds/ext_operator_map.csv
+
+  # ---------------------------------------------------------------------------
+  # Python quality (HARD on real errors): app + agent scripts.
+  # ---------------------------------------------------------------------------
+  python-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ruff
+        run: pip install ruff
+      - name: ruff (pyflakes + syntax errors)
+        run: ruff check --select F,E9 apps agent
+      - name: py_compile
+        run: python -m py_compile apps/streamlit/streamlit_app.py agent/option_a_discovery/*.py
+
+  # ---------------------------------------------------------------------------
+  # Docs gate: the Option A deliverable must stay present.
+  # ---------------------------------------------------------------------------
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Model-card / plan docs present
+        run: |
+          test -f docs/OptionA_Footprint_Gap_Investigation.md || (echo "Missing Option A investigation doc" && exit 1)
+          test -f docs/CrossSell_PoC_Native_Snowflake_Plan.md || (echo "Missing plan doc" && exit 1)

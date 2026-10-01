@@ -1,0 +1,44 @@
+name: agent-discovery
+
+# The Option A discovery agent runs interactively in Cortex Code (it needs web
+# access + register API keys) and opens a seed-update PR. This workflow is the
+# automated guardrail around that flow:
+#   * on demand: validate a candidate CSV the agent produced, before you open the PR
+#   * on a schedule: re-assert that the committed external seeds still carry full
+#     provenance (a cheap, deterministic anti-fabrication health check)
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidates_path:
+        description: "Path to a candidate CSV to validate (optional)"
+        required: false
+        default: ""
+      schema:
+        description: "Schema of the candidate file"
+        required: false
+        default: "country_units"
+        type: choice
+        options: [country_units, brand_totals, operator_map]
+  schedule:
+    - cron: '17 6 1 */3 *'   # 06:17 on the 1st, every 3rd month
+
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate committed external seeds
+        run: |
+          python agent/option_a_discovery/validate_candidates.py --schema country_units transform/seeds/ext_country_units.csv
+          python agent/option_a_discovery/validate_candidates.py --schema brand_totals  transform/seeds/ext_brand_totals.csv
+          python agent/option_a_discovery/validate_candidates.py --schema operator_map  transform/seeds/ext_operator_map.csv
+      - name: Validate a candidate file (if provided)
+        if: ${{ github.event.inputs.candidates_path != '' }}
+        run: |
+          python agent/option_a_discovery/validate_candidates.py \
+            --schema "${{ github.event.inputs.schema }}" \
+            "${{ github.event.inputs.candidates_path }}"

@@ -1,0 +1,27 @@
+country_code,country_name,trs_eligible
+AT,Austria,TRUE
+BE,Belgium,TRUE
+HR,Croatia,TRUE
+CZ,Czech Republic,TRUE
+DK,Denmark,TRUE
+FI,Finland,TRUE
+FR,France,TRUE
+DE,Germany,TRUE
+GR,Greece,TRUE
+HU,Hungary,TRUE
+IE,Ireland,TRUE
+IT,Italy,TRUE
+NL,Netherlands,TRUE
+NO,Norway,TRUE
+PL,Poland,TRUE
+PT,Portugal,TRUE
+ES,Spain,TRUE
+SE,Sweden,TRUE
+CH,Switzerland,TRUE
+GB,United Kingdom,TRUE
+TR,Turkey,TRUE
+SG,Singapore,TRUE
+JP,Japan,TRUE
+KR,South Korea,TRUE
+TH,Thailand,TRUE
+AU,Australia,TRUE

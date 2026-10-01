@@ -1,4 +1,6 @@
--- Location-level revenue by PRODUCT — the primary share-of-wallet source.
+-- Location-level revenue by PRODUCT — Planet's realised economics.
+-- Clean passthrough: attribution to a PoC merchant happens downstream in
+-- int_value_benchmark, which joins on UID to the corrected int_brand_resolution.
 select
     uid,
     brand,
@@ -8,5 +10,4 @@ select
     total_revenue,
     count_transactions
 from {{ source('curated', 'curated_ccl_revenue') }}
-where uid in (select uid from {{ ref('stg_ccl_customer') }})
-   or brand in (select distinct raw_brand from {{ ref('stg_ccl_customer') }})
+where uid is not null

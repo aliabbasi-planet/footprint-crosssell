@@ -16,22 +16,60 @@ clean-targets: ["target", "dbt_packages"]
 vars:
   poc_only: true
   lookback_months: 12
+  # Licence/compliance gate for external data. Option A ('A') is cleared and on.
+  # Add 'B' (Google Places), 'C' (Marketplace POI) only after Legal + licence
+  # sign-off; the matching adapter model + registry row activate automatically.
+  enabled_source_tiers: ['A']
 
 models:
   footprint_crosssell:
     staging:
       +materialized: view
       +schema: crosssell_footprint
+    external:
+      +materialized: table
+      +schema: crosssell_footprint
+      +tags: ['external']
     intermediate:
       +materialized: table
       +schema: crosssell_footprint
     marts:
       +materialized: table
       +schema: crosssell_footprint
+    # Superseded scraping/eligibility design. Kept for reference and for
+    # reactivation under Option D/E (automated collection) once Legal signs off.
+    _legacy:
+      +enabled: false
+      +tags: ['legacy']
 
 seeds:
   footprint_crosssell:
     +schema: crosssell_footprint
+    # Pin types so provenance dates stay text (validator accepts YYYY / YYYY-MM /
+    # YYYY-MM-DD) and flags load as real booleans, regardless of inference.
+    ext_brand_totals:
+      +column_types:
+        brand_total_units: number
+        brand_total_countries: number
+        as_of_period: varchar
+    ext_country_units:
+      +column_types:
+        external_units: number
+        as_of_period: varchar
+    ext_operator_map:
+      +column_types:
+        planet_existing_relationship: boolean
+        as_of_period: varchar
+    external_source_registry:
+      +column_types:
+        enabled: boolean
+    dim_country_region:
+      +column_types:
+        iso2: varchar
+    brand_resolution_rules:
+      +column_types:
+        pattern: varchar
+        country_scope: varchar
 
 snapshots:
   footprint_crosssell:

@@ -1,15 +1,112 @@
+version: 2
+
 seeds:
-  - name: poc_target_merchants
-    description: "The 9 seed merchants for the PoC, with brand-match patterns."
+  - name: brand_resolution_rules
+    description: >
+      Deterministic merchant-matching rules applied across
+      brand + customer_name + sf_account_name (macros/rule_match.sql).
+      rule_type: include (direct brand), subbrand (operating banner rolling up to
+      the parent), exclude (false-positive kill-list; merchant '*' applies to all
+      merchants, e.g. third-party parking operators). match_mode: ilike
+      (substring), word (whole word), prefix (word-start), leading (a field starts
+      with the token). country_scope: pipe-delimited canonical countries the rule
+      is limited to, or empty for global. Every rule was set from a match audit.
     columns:
       - name: merchant
-        tests: [not_null]
-      - name: match_pattern
-        tests: [not_null]
-  - name: channel_terminal_map
-    description: "Keyword -> channel mapping used to classify TERMINAL_TYPE_NAME."
-  - name: brand_corrections
-    description: "Raw brand string -> canonical brand overrides."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Starbucks', 'SSP', 'Burger King / King Foods', 'Accor', 'Marriott',
+                         'Four Seasons', 'Luxottica', 'Dolce & Gabbana', 'Subdued', '*']
+      - name: pattern
+        data_tests: [not_null]
+      - name: rule_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['include', 'exclude', 'subbrand']
+      - name: match_mode
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['ilike', 'word', 'prefix', 'leading']
+
+  - name: external_source_registry
+    description: >
+      Licence/compliance gate. One row per external data source with its
+      option_tier (A-E), data_category, enabled flag, and the licence/approval it
+      needs. int_external_footprint only admits rows whose source is enabled.
     columns:
-      - name: canonical_brand
-        tests: [not_null]
+      - name: source_id
+        data_tests: [not_null, unique]
+      - name: option_tier
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C', 'D', 'E']
+      - name: enabled
+        data_tests: [not_null]
+
+  - name: ext_brand_totals
+    description: "Brand-published global footprint totals per merchant, with source + as-of."
+    columns:
+      - name: merchant
+        data_tests: [not_null, unique]
+      - name: source_url
+        data_tests: [not_null]
+      - name: as_of_period
+        data_tests: [not_null]
+      - name: source_tier
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C']
+
+  - name: ext_country_units
+    description: "Per-country brand-published unit counts, with source + as-of (Option A)."
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+      - name: external_units
+        data_tests: [not_null]
+      - name: source_url
+        data_tests: [not_null]
+      - name: as_of_period
+        data_tests: [not_null]
+
+  - name: ext_operator_map
+    description: "Who operates each brand per country + whether Planet already has that relationship."
+    columns:
+      - name: merchant
+        data_tests: [not_null]
+      - name: country
+        data_tests: [not_null]
+      - name: operator_name
+        data_tests: [not_null]
+      - name: source_url
+        data_tests: [not_null]
+
+  - name: dim_country_region
+    description: "Canonical country -> ISO2 + region, for normalisation and regional roll-ups."
+    columns:
+      - name: country_canonical
+        data_tests: [not_null, unique]
+      - name: region
+        data_tests: [not_null]
+
+  # --- Retained supporting seeds (not part of the Option A critical path) ---
+  - name: poc_target_merchants
+    description: "The 9 seed merchants for the PoC. Superseded for matching by brand_resolution_rules; retained for reference."
+  - name: country_trs_eligible
+    description: "Countries where Tax Free refund schemes are available."
+  - name: brand_corrections
+    description: "Raw brand string -> canonical brand overrides (legacy support)."
+  - name: channel_terminal_map
+    description: "Keyword -> channel mapping (legacy support)."
+  - name: product_eligibility
+    description: "Vertical x product_family eligibility rules (legacy cross-sell design)."
+  - name: poc_merchant_store_finders
+    description: "Brand store-finder URLs (legacy scraping design; parked under Option D/E)."
