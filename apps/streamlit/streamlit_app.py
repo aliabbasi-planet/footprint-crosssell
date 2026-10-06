@@ -142,7 +142,7 @@ def download(df: pd.DataFrame, label: str, filename: str, key: str) -> None:
         file_name=filename,
         mime="text/csv",
         key=key,
-        use_container_width=True,
+        width="stretch",
     )
 
 
@@ -225,7 +225,7 @@ with st.sidebar:
         "Warm operators only", value=False,
         help="Operators Planet already serves somewhere (e.g. AmRest in Germany → Poland/Czechia).",
     )
-    if st.button(":material/restart_alt: Reset filters", use_container_width=True):
+    if st.button(":material/restart_alt: Reset filters", width="stretch"):
         st.session_state.clear()
         st.rerun()
     st.divider()
@@ -301,7 +301,7 @@ with tab_action:
                 "operator_served_by_planet_in", "gap_units", "est_gap_value_25pct_eur",
             ]].head(12)
             st.dataframe(
-                show, use_container_width=True, hide_index=True,
+                show, width="stretch", hide_index=True,
                 column_config={
                     "priority_rank": st.column_config.NumberColumn("#", width="small"),
                     "operator_name": st.column_config.TextColumn("Operator"),
@@ -327,7 +327,7 @@ with tab_action:
             st.altair_chart(
                 ranked_bar(top, "label", cap_col, color_label_col="gap_kind_label",
                            value_fmt=",.0f", height=380),
-                use_container_width=True,
+                width="stretch",
             )
 
     st.divider()
@@ -362,7 +362,7 @@ with tab_cov:
                 tooltip=[alt.Tooltip("merchant:N"), alt.Tooltip("country_coverage_pct:Q", format=".1f")],
             )
             .properties(height=320),
-            use_container_width=True,
+            width="stretch",
         )
 
         show = cov_f[[
@@ -372,7 +372,7 @@ with tab_cov:
             "brand_source_name", "brand_as_of_period", "brand_source_tier", "brand_source_url",
         ]].sort_values("country_whitespace_count", ascending=False)
         st.dataframe(
-            show, use_container_width=True, hide_index=True,
+            show, width="stretch", hide_index=True,
             column_config={
                 "merchant": st.column_config.TextColumn("Merchant"),
                 "vertical": st.column_config.TextColumn("Vertical"),
@@ -422,7 +422,7 @@ with tab_ws:
         st.altair_chart(
             ranked_bar(top, "label", cap_col, title=f"Top countries by value {cap_short}",
                        color_label_col="gap_kind_label", height=420),
-            use_container_width=True,
+            width="stretch",
         )
 
         show = view[[
@@ -431,7 +431,7 @@ with tab_ws:
             cap_col, "source_name", "as_of_period", "source_tier", "source_url",
         ]]
         st.dataframe(
-            show, use_container_width=True, hide_index=True,
+            show, width="stretch", hide_index=True,
             column_config={
                 "merchant": st.column_config.TextColumn("Merchant"),
                 "country": st.column_config.TextColumn("Country"),
@@ -480,7 +480,7 @@ with tab_ops:
             st.altair_chart(
                 ranked_bar(by_type, "opportunity_type", "est_gap_value_25pct_eur",
                            title="Est. value @25% by opportunity type", height=240),
-                use_container_width=True,
+                width="stretch",
             )
 
         show = ov[[
@@ -490,7 +490,7 @@ with tab_ops:
             "est_gap_value_25pct_eur", "evidence", "source_url",
         ]]
         st.dataframe(
-            show, use_container_width=True, hide_index=True,
+            show, width="stretch", hide_index=True,
             column_config={
                 "priority_rank": st.column_config.NumberColumn("#", width="small"),
                 "merchant": st.column_config.TextColumn("Merchant"),
@@ -574,7 +574,7 @@ with tab_method:
         .sort_values(["merchant", "source_tier"])
     )
     st.dataframe(
-        srcs, use_container_width=True, hide_index=True,
+        srcs, width="stretch", hide_index=True,
         column_config={
             "merchant": st.column_config.TextColumn("Merchant"),
             "source_name": st.column_config.TextColumn("Source"),

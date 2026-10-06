@@ -1,0 +1,13 @@
+# Local app runtime, verified with Python 3.11.
+# Install from the repository root into .venv; see apps/streamlit/README.md.
+# Direct dependencies and the Arrow/SSO integrations are pinned below.
+# Transitive dependencies are resolved by pip/uv; this is not a full lockfile.
+# dbt and Snowflake deployment tooling are separate, optional installations.
+# This file is NOT included in the Snowflake container deployment artifacts.
+
+streamlit==1.64.0
+pandas==2.3.3
+altair==6.3.0
+snowflake-connector-python[pandas,secure-local-storage]==4.8.0
+pyarrow==25.0.1
+keyring==25.7.0

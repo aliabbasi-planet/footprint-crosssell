@@ -74,21 +74,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install ruff
-        run: pip install ruff
+      - name: Install app requirements and lint tooling
+        run: |
+          python -m pip install -r apps/streamlit/requirements.txt ruff
+          python -m pip check
+      - name: Offline app smoke tests (no Snowflake credentials)
+        run: python -m unittest discover -s apps/streamlit/tests -p 'test_*.py' -v
       - name: ruff (pyflakes + syntax errors)
         run: ruff check --select F,E9 apps agent
       - name: py_compile
         run: python -m py_compile apps/streamlit/streamlit_app.py agent/option_a_discovery/*.py
 
   # ---------------------------------------------------------------------------
-  # Docs gate: the Option A deliverable must stay present.
+  # Public install guides must stay present; internal documents stay local-only.
   # ---------------------------------------------------------------------------
   docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Model-card / plan docs present
+      - name: Public installation guides and requirements present
         run: |
-          test -f docs/OptionA_Footprint_Gap_Investigation.md || (echo "Missing Option A investigation doc" && exit 1)
-          test -f docs/CrossSell_PoC_Native_Snowflake_Plan.md || (echo "Missing plan doc" && exit 1)
+          test -s README.md
+          test -s apps/streamlit/README.md
+          test -s apps/streamlit/requirements.txt
+      - name: Internal documentation is not tracked
+        run: |
+          if test -n "$(git ls-files -- docs external-docs)"; then
+            echo "Internal documentation must not be committed to the public repository"
+            exit 1
+          fi
