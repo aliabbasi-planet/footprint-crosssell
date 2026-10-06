@@ -26,3 +26,7 @@ Thumbs.db
 *.pem
 *_rsa_key*
 secrets.*
+
+# Internal docs — kept local only, never pushed (public repo)
+docs/
+external-docs/
